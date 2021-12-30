@@ -1,0 +1,206 @@
+.content {
+  padding-top: 50px;
+  display: block;
+  min-height: calc(100vh - 100px);
+
+  .date {
+    display: flex;
+    justify-content: center;
+    line-height: 50px;
+    gap: 30px;
+    font-size: 24px;
+    color: #36a2eb;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    text-align: center;
+    .DateImg {
+      width: 50px;
+      height: 50px;
+    }
+    .DateImg img:hover {
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  .legend {
+
+  }
+  .diagram {
+    display: grid;
+    grid-template-areas:
+            'i1 i2 i3 i4'
+            'i5 circle circle i6'
+            'i7 circle  circle i8'
+            'i9 circle circle i10 '
+            'i11 i12 i13 i14';
+    column-gap: 40px;
+    row-gap: 20px;
+    grid-template-columns: fit-content(50px) 1fr 1fr fit-content(50px);
+    box-sizing: border-box;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 600px) {
+     margin-left: 10px;
+      margin-right: 10px;
+      column-gap: 20px;
+    }
+    @media (max-width: 350px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .diagramImg {
+      grid-area: circle;
+      justify-self: center;
+      width: 350px;
+      height: 350px;
+      position: relative;
+
+
+      .hoverElement {
+        background: rgba(88, 89, 91, 0.4);
+        box-sizing: border-box;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        align-self: center;
+        padding-top: 30px;
+        div {
+         line-height: 30px;
+          color: rgba(88, 89, 91, 1);
+        }
+        @media (max-width: 460px) {
+          width: 100px;
+          height: 100px;
+          padding-top: 20px;
+          div {
+            line-height: 20px;
+            font-size: 14px;
+          }
+        }
+        @media (max-width: 360px) {
+          width: 75px;
+          height: 75px;
+          padding-top: 7.5px;
+          div {
+            line-height: 20px;
+            font-size: 14px;
+          }
+        }
+      }
+      @media (max-width: 600px) {
+        width: 100%;
+        display: flex;
+        canvas {
+          align-self: center;
+        }
+      }
+
+    }
+    .category {
+      align-self: center;
+      justify-self: center;
+      border-radius: 3px;
+      padding: 5px;
+      img {
+        display: block;
+        width: 50px;
+        margin-right: auto;
+        margin-left: auto;
+        pointer-events: none;
+        @media (max-width: 600px) {
+          width: 40px;
+
+        }
+        @media (max-width: 350px) {
+          width: 30px;
+        }
+      }
+      .categoryTitle {
+        font-size: 16px;
+        color: #58555B;
+        text-align: center;
+        @media (max-width: 600px) {
+          display: none;
+        }
+      }
+    }
+    .category:hover {
+      cursor: pointer;
+    }
+    .category:nth-child(1) {
+      grid-area: i1;
+
+    }
+    .category:nth-child(2) {
+      grid-area: i2;
+
+    }
+    .category:nth-child(3) {
+      grid-area: i3;
+
+    }
+    .category:nth-child(4) {
+      grid-area: i4;
+
+    }
+    .category:nth-child(5) {
+      grid-area: i5;
+
+    }
+    .category:nth-child(6) {
+      grid-area: i6;
+    }
+    .category:nth-child(7) {
+      grid-area: i7;
+
+    }
+    .category:nth-child(8) {
+      grid-area: i8;
+
+    }
+    .category:nth-child(9) {
+      grid-area: i9;
+
+    }
+    .category:nth-child(10) {
+      grid-area: i10;
+
+
+    }
+    .category:nth-child(11) {
+      grid-area: i11;
+
+    }
+    .category:nth-child(12) {
+      grid-area: i12;
+
+    }
+    .category:nth-child(13) {
+      grid-area: i13;
+
+    }
+    .category:nth-child(14) {
+      grid-area: i14;
+    }
+  }
+  .tabs {
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+.activeIcon {
+
+  background: rgba(88, 89, 91, 0.1);
+}

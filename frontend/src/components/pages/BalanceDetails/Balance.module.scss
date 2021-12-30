@@ -1,0 +1,231 @@
+.hidden {
+  transform: translateY(calc(100% + 50px));
+}
+
+.opened {
+  transform: translateY(0);
+
+}
+
+.balanceDetails {
+  z-index: 1;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  height: calc(100vh - 50px);
+  position: fixed;
+  top: 0px;
+  left: 0;
+  transition: all 1s ease-in-out;
+  padding-top: 60px;
+  overflow: auto;
+  .day {
+    margin-left: 15%;
+    margin-right: 15%;
+    box-sizing: border-box;
+    @media (max-width: 768px) {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+    @media (max-width: 414px) {
+
+    }
+    .dayTitle {
+      background: #36a2eb;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      min-height: 100px;
+      display: flex;
+      border-radius: 10px;
+      padding: 20px 20px 20px 60px;
+      box-sizing: border-box;
+      gap: 30px;
+      box-sizing: border-box;
+      @media (max-width: 768px) {
+        padding: 20px 20px 20px 20px;
+      }
+      @media (max-width: 414px) {
+        padding: 10px 10px 10px 10px;
+        gap: 10px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        transition: all 0.5s ease;
+        align-self: center;
+        @media (max-width: 414px) {
+          width: 25px;
+          height: 25px;
+
+        }
+      }
+
+      img:hover {
+        cursor: pointer;
+        transform: rotateX(180deg);
+      }
+
+      .dayDate {
+        font-size: 18px;
+        color: #F2F2F2;
+        align-self: center;
+        @media (max-width: 414px) {
+         text-align: center;
+        }
+      }
+
+      .dayItemNumber {
+        border-radius: 50%;
+        background: #F2CF63;
+        padding: 5px;
+        line-height: 25px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        align-self: center;
+        @media (max-width: 414px) {
+          width: 10px;
+          height: 10px;
+          line-height: 10px;
+          font-size: 10px;
+        }
+      }
+
+      .totalCountPositive  {
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 3px;
+        color: #4bc0c0;
+        font-size: 18px;
+        align-self: center;
+        margin-left: auto;
+        margin-right: 20px;
+        @media (max-width: 414px) {
+          margin-right: 0px;
+          text-align: right;
+        }
+      }
+      .totalCountNegative  {
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 3px;
+        color: #ff6384;
+        font-size: 18px;
+        align-self: center;
+        margin-left: auto;
+        margin-right: 20px;
+        @media (max-width: 414px) {
+          margin-right: 0px;
+          text-align: right;
+        }
+      }
+    }
+
+    .dayHidden {
+
+      margin-top: 30px;
+      max-height: 0px;
+      transition: max-height 2s ease-in-out;
+      visibility: hidden;
+      overflow: hidden;
+      .dayItem {
+        background: rgba(101, 147, 166, 0.1);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        min-height: 70px;
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.5s 0.5s ease-in-out;
+        border-radius: 10px;
+        margin-left: 100px;
+        margin-bottom: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        gap: 30px;
+        @media (max-width: 768px) {
+          margin-left: 0px;
+        }
+        @media (max-width: 414px) {
+          background: rgba(75, 192, 192, 0.3);
+        }
+        .dayItemStatusPositive {
+          border-radius: 50%;
+          background: #4bc0c0;
+          width: 25px;
+          height: 25px;
+          align-self: center;
+          @media (max-width: 414px) {
+            display: none;
+          }
+        }
+        .dayItemStatusNegative {
+          border-radius: 50%;
+          background: #ff6384;
+          width: 25px;
+          height: 25px;
+          align-self: center;
+          @media (max-width: 414px) {
+            display: none;
+          }
+        }
+        .dayItemTitle {
+          color: #58595B;
+          font-size: 16px;
+          align-self: center;
+        }
+
+        .dayItemCost {
+          color: #58595B;
+          font-size: 18px;
+          align-self: center;
+          margin-left: auto;
+          margin-right: 30px;
+        }
+      }
+    }
+    .hidden {
+      max-height: 0px;
+      transition: max-height 0.5s ease-in-out;
+      visibility: hidden;
+      .dayItem {
+        opacity: 0;
+
+        transition: opacity 0.1s 0.5s ease-in-out;
+      }
+    }
+    .opened {
+      max-height: 2000px;
+      visibility: visible;
+      .dayItem {
+        opacity: 1;
+
+        max-height: 2000px;
+      }
+    }
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+.emptyDay {
+  color: #36a2eb;
+  text-align: center;
+  font-size: 24px;
+  padding: 30px;
+  padding-bottom: 20%;
+}
+.exit{
+  height: 25px;
+  width: 25px;
+  justify-self: center;
+  align-self: center;
+}
+.exit:hover{
+  cursor: pointer;
+}
+.deletedDayItem {
+  transition: max-height 1s ease-in-out,opacity 0.5s ease-in-out;
+  max-height: 0;
+  visibility: hidden;
+}

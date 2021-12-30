@@ -1,0 +1,33 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    environment:
+        - MONGO_DB_URL=mongodb://cash-mongo-seed:27017/cash?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
+        - PORT=8080
+    depends_on:
+      - cash-db
+    container_name: cash-backend
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_APPOLO_CLIENT_URL=http://localhost:8080/graphql
+    ports:
+      - 80:80
+    container_name: cash-frontend
+  cash-db:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: cash
+    volumes:
+      - './data:/data/mongo-seed'
+    ports:
+      - "27017:27017"
+    container_name: cash-mongo-seed
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - cash-db

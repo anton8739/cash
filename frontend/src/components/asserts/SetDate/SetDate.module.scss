@@ -1,0 +1,105 @@
+.wrapper {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(88, 89, 91, 0.3);
+  .setDate {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: calc(50% - 20vw);
+    left: calc(50% - 20vw);
+    width: calc(40vw);
+    height: calc(40vw);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #F2F2F2;
+
+    .header {
+      background: #36a2eb;
+      font-size: 18px;
+      color: #F2F2F2;
+      line-height: 50px;
+      box-sizing: border-box;
+      padding-left: 60px;
+      padding-right: 60px;
+      border-radius: 10px 10px 0px 0px;
+      .title {
+
+      }
+
+      .editDate {
+        display: flex;
+
+        .date {
+
+        }
+
+        .edit {
+
+        }
+      }
+
+    }
+
+    .calendar {
+      background: #F2F2F2;
+      flex-grow: 1;
+
+      .cal {
+        width: 100%;
+        border-radius: 0;
+        border: none;
+      }
+
+      .calDay {
+      }
+    }
+
+
+    .bottomBar {
+      height: 100px;
+      display: flex;
+      box-sizing: border-box;
+      gap: 30px;
+      justify-content: flex-end;
+      padding-right: 60px;
+      border-radius: 0px 0px 10px 10px;
+    }
+    @media (max-width: 1300px) {
+      top: calc(50% - 25vw);
+      left: calc(50% - 25vw);
+      width: calc(50vw);
+      height: calc(50vw);
+    }
+
+    @media (max-width: 1024px) {
+      top: calc(50% - 30vw);
+      left: calc(50% - 30vw);
+      width: calc(60vw);
+      height: calc(60vw);
+    }
+    @media (max-width: 768px) {
+      top: calc(50% - 40vw);
+      left: calc(50% - 40vw);
+      width: calc(80vw);
+      height: calc(80vw);
+    }
+    @media (max-width: 414px) {
+      top: calc(50% - 45vh);
+      left: calc(50% - 45vw);
+      width: calc(90vw);
+      height: calc(90vh);
+    }
+
+  }
+
+}
+
+.active {
+  display: block;
+
+}
