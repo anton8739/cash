@@ -7,6 +7,9 @@
   border-radius: 5px;
   padding-top: 15px;
   box-sizing: border-box;
+  @media (max-width:350px) {
+    background: rgba(101, 147, 166, 0.3);
+  }
   .navlink {
     text-decoration: none;
   }

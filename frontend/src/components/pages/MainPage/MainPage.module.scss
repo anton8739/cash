@@ -14,15 +14,29 @@
     padding-bottom: 30px;
     text-align: center;
     .DateImg {
-      width: 50px;
-      height: 50px;
+      img {
+        width: 50px;
+        height: 50px;
+        @media (max-height: 700px) {
+          width: 25px;
+          height: 25px;
+        }
+      }
     }
     .DateImg img:hover {
       cursor: pointer;
     }
+    @media (max-height: 700px) {
+      line-height: 25px;
+    }
     @media (max-width: 600px) {
       padding-top: 20px;
       padding-bottom: 20px;
+    }
+    @media (max-height: 950px) {
+      font-size: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
   }
   .legend {
@@ -43,6 +57,9 @@
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    @media (max-height: 950px) {
+      row-gap: 0px;
+    }
     @media (max-width: 600px) {
      margin-left: 10px;
       margin-right: 10px;
@@ -62,6 +79,7 @@
 
       .hoverElement {
         background: rgba(88, 89, 91, 0.4);
+        overflow: hidden;
         box-sizing: border-box;
         text-align: center;
         width: 150px;
@@ -71,37 +89,33 @@
         top: 50%;
         left:50%;
         transform:translate(-50%, -50%);
-        align-self: center;
         padding-top: 30px;
-        div {
-         line-height: 30px;
-          color: rgba(88, 89, 91, 1);
+        display: flex;
+        .hoverWrapper {
+          width: 100%;
+          height: fit-content;
+          align-self: center;
+          margin-top: -25px;
+          div {
+            line-height: 25px;
+            color: rgba(88, 89, 91, 1);
+          }
         }
         @media (max-width: 460px) {
-          width: 100px;
-          height: 100px;
-          padding-top: 20px;
-          div {
-            line-height: 20px;
-            font-size: 14px;
-          }
-        }
-        @media (max-width: 360px) {
-          width: 75px;
-          height: 75px;
-          padding-top: 7.5px;
-          div {
-            line-height: 20px;
-            font-size: 14px;
-          }
+          display: none;
         }
       }
       @media (max-width: 600px) {
         width: 100%;
         display: flex;
+        align-content: center;
         canvas {
+          width: 90%;
           align-self: center;
         }
+      }
+      @media (max-height: 750px) {
+        height: fit-content;
       }
 
     }
@@ -116,6 +130,9 @@
         margin-right: auto;
         margin-left: auto;
         pointer-events: none;
+        @media (max-height: 950px) {
+          width: 30px;
+        }
         @media (max-width: 600px) {
           width: 40px;
 
@@ -198,9 +215,21 @@
     padding-bottom: 50px;
     justify-content: center;
     gap: 30px;
+    @media (max-height: 950px) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
 }
 .activeIcon {
 
   background: rgba(88, 89, 91, 0.1);
+}
+.hoverElement2 {
+  display: none;
+  text-align: center;
+  color: #36a2eb;
+  @media (max-width: 460px) {
+    display: block;
+  }
 }

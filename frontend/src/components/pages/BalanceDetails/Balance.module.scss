@@ -41,9 +41,6 @@
       gap: 30px;
       box-sizing: border-box;
       @media (max-width: 768px) {
-        padding: 20px 20px 20px 20px;
-      }
-      @media (max-width: 414px) {
         padding: 10px 10px 10px 10px;
         gap: 10px;
       }
@@ -52,7 +49,7 @@
         height: 50px;
         transition: all 0.5s ease;
         align-self: center;
-        @media (max-width: 414px) {
+        @media (max-width: 768px) {
           width: 25px;
           height: 25px;
 
@@ -68,8 +65,12 @@
         font-size: 18px;
         color: #F2F2F2;
         align-self: center;
-        @media (max-width: 414px) {
+        @media (max-width: 768px) {
          text-align: center;
+        }
+        @media (max-width: 414px) {
+          text-align: center;
+          font-size: 14px;
         }
       }
 
@@ -82,7 +83,7 @@
         height: 25px;
         text-align: center;
         align-self: center;
-        @media (max-width: 414px) {
+        @media (max-width: 768px) {
           width: 10px;
           height: 10px;
           line-height: 10px;
@@ -99,9 +100,13 @@
         align-self: center;
         margin-left: auto;
         margin-right: 20px;
-        @media (max-width: 414px) {
+        @media (max-width: 768px) {
           margin-right: 0px;
           text-align: right;
+        }
+        @media (max-width: 414px) {
+          text-align: center;
+          font-size: 14px;
         }
       }
       .totalCountNegative  {
@@ -113,9 +118,13 @@
         align-self: center;
         margin-left: auto;
         margin-right: 20px;
-        @media (max-width: 414px) {
+        @media (max-width: 768px) {
           margin-right: 0px;
           text-align: right;
+        }
+        @media (max-width: 414px) {
+          text-align: center;
+          font-size: 14px;
         }
       }
     }
@@ -144,8 +153,10 @@
           margin-left: 0px;
         }
         @media (max-width: 414px) {
-          background: rgba(75, 192, 192, 0.3);
+          font-size: 14px;
+         // background: rgba(75, 192, 192, 0.3);
         }
+
         .dayItemStatusPositive {
           border-radius: 50%;
           background: #4bc0c0;
@@ -178,6 +189,11 @@
           align-self: center;
           margin-left: auto;
           margin-right: 30px;
+          @media (max-width: 414px) {
+            font-size: 14px;
+            justify-self: center;
+            text-align: center;
+          }
         }
       }
     }
@@ -220,6 +236,10 @@
   width: 25px;
   justify-self: center;
   align-self: center;
+  @media (max-width: 414px) {
+    height: 15px;
+    width: 15px;
+  }
 }
 .exit:hover{
   cursor: pointer;
@@ -228,4 +248,10 @@
   transition: max-height 1s ease-in-out,opacity 0.5s ease-in-out;
   max-height: 0;
   visibility: hidden;
+}
+.negative {
+  background: #fdd6cc !important;
+}
+.positive {
+  background: #95e0e0 !important;
 }

@@ -38,7 +38,7 @@ let Experse = (props) => {
        props.setSelectedDaysArray(props.selectedDaysArray.filter(item => item.id != id))
     }
     return(
-        <div className={style.dayItem}>
+        <div className={`${style.dayItem} ${props.item.sum < 0 ? style.negative  :  style.positive}`}>
             <img src={exit} alt="exit" className={style.exit} onClick={(e) => handleClick(e)}/>
             <div className={props.item.sum > 0 ? style.dayItemStatusPositive : style.dayItemStatusNegative}></div>
             <div className={style.dayItemTitle}>{props.item.category == -1 ? "Доход" : props.categoryTitles [props.item.category]}</div>

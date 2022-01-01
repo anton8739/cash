@@ -55,7 +55,7 @@ let mapStateToProps = (state) => {
         dataSetWindowVisiability: state.main.dataSetWindowVisiability,
         intervalSetWindowVisiability: state.main.intervalSetWindowVisiability,
         categoryTitles: state.main.categoryTitles,
-        auth : state.auth.auth
+        auth: state.auth.auth
     }
 }
 
@@ -87,7 +87,7 @@ const MainPage = (props) => {
         variables: {
             dates: currentInterval,
             intervalType: intervalType,
-            userId : auth.id
+            userId: auth.id
         }
     })
     let [canvasData, setCanvasData] = useState({
@@ -140,7 +140,8 @@ const MainPage = (props) => {
         refetch()
     }, [])
     useEffect(() => {
-        setCanvasData({...canvasData,
+        setCanvasData({
+            ...canvasData,
             data: {
                 ...canvasData.data,
                 datasets: [{...canvasData.data.datasets[0], data: datasetsData, count: datasetsCount}]
@@ -205,7 +206,7 @@ const MainPage = (props) => {
             diagramData.getExperseByDates.forEach(item => {
                 if (item.category != -1) {
                     experse += parseFloat(item.sum);
-                } else  {
+                } else {
                     income += parseFloat(item.sum);
                 }
             })
@@ -282,36 +283,36 @@ const MainPage = (props) => {
         switch (intervalType) {
 
             case "day" :
-              if(currentInterval == getCurrentDate()) {
-                  setArrow(false)
+                if (currentInterval == getCurrentDate()) {
+                    setArrow(false)
 
-              } else {
-                  setArrow(true)
-              }
+                } else {
+                    setArrow(true)
+                }
                 break;
             case "week" :
-                if(currentInterval == getCurrentWeekInterval()) {
+                if (currentInterval == getCurrentWeekInterval()) {
                     setArrow(false)
                 } else {
                     setArrow(true)
                 }
                 break;
             case "month" :
-                if(currentInterval == getCurrentMonthInterval()) {
+                if (currentInterval == getCurrentMonthInterval()) {
                     setArrow(false)
                 } else {
                     setArrow(true)
                 }
                 break;
             case "year" :
-                if(currentInterval == getCurrentYearInterval()) {
+                if (currentInterval == getCurrentYearInterval()) {
                     setArrow(false)
                 } else {
                     setArrow(true)
                 }
                 break;
             case "all" :
-                    setArrow(false)
+                setArrow(false)
                 break;
             default :
                 break;
@@ -324,11 +325,11 @@ const MainPage = (props) => {
             <div className={style.content}>
                 <div className={style.date}>
                     <div className={style.DateImg}>
-                        {intervalType != "all" ?   <img
+                        {intervalType != "all" ? <img
                             src={arrowLeft}
                             onClick={() => setCurrentInterval(prevCurrentDate(currentInterval, intervalType), intervalType)}
                             alt="arrow"/> : null}
-                     </div>
+                    </div>
                     {currentInterval}
                     <div className={style.DateImg}>
                         {arrow ? <img
@@ -340,27 +341,42 @@ const MainPage = (props) => {
                 <div className={style.diagram}>
                     <div className={style.diagramImg} id="diagramImg">
                         <div className={style.hoverElement}>
-                            <div>
-                                {(activeIcon.data === 0) ? activeIcon.data + '%' : null}
-                                {!activeIcon.data ? null : activeIcon.data + '%'}
+                            <div className={style.hoverWrapper}>
+                                <div>
+                                    {(activeIcon.data === 0) ? activeIcon.data + '%' : null}
+                                    {!activeIcon.data ? null : activeIcon.data + '%'}
+                                </div>
+                                <div>
+                                    {activeIcon.label}
+                                </div>
+                                <div onClick={() => console.log(window.myChart)}>
+                                    {activeIcon.count} BYN
+                                </div>
                             </div>
-                            <div>
-                                {activeIcon.label}
-                            </div>
-                            <div onClick={() => console.log(window.myChart)}>
-                                {activeIcon.count} BYN
-                            </div>
+
                         </div>
                         <canvas id="canvas" width="400" height="400"></canvas>
                     </div>
                     {legend}
+                </div>
+                <div className={style.hoverElement2}>
+
+                    <div>
+                        {(activeIcon.data === 0) ? activeIcon.data + '%' : null}
+                        {!activeIcon.data ? null : activeIcon.data + '%'}
+                    </div>
+                    <div>
+                        {activeIcon.label}
+                    </div>
+                    <div onClick={() => console.log(window.myChart)}>
+                        {activeIcon.count} BYN
+                    </div>
                 </div>
                 <div className={style.tabs}>
                     <GreenButtom/>
                     <RedButtom/>
                 </div>
             </div>
-
             <CustomFooter refetch={refetch}/>
             <SetDate visibility={dataSetWindowVisiability}/>
             <SetInterval visibility={intervalSetWindowVisiability}/>
